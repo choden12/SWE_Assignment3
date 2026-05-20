@@ -1,4 +1,4 @@
-// Expense state management using Zustand
+// For expense state management using Zustand
 import { create } from 'zustand';
 import { fetchExpenses, createExpense, updateExpense, deleteExpense } from '../api/expenseApi';
 
@@ -17,7 +17,7 @@ const useExpenseStore = create((set, get) => ({
   searchQuery: '',
   selectedCategory: null,
   
-  // Load all expenses
+  // For Load all expenses
   loadExpenses: async () => {
     set({ loading: true, error: null });
     const result = await fetchExpenses();
@@ -28,7 +28,7 @@ const useExpenseStore = create((set, get) => ({
     }
   },
   
-  // Add new expense
+  // For Add new expense
   addExpense: async (expenseData) => {
     set({ loading: true, error: null });
     const result = await createExpense(expenseData);
@@ -44,7 +44,7 @@ const useExpenseStore = create((set, get) => ({
     }
   },
   
-  // Update expense
+  // To Update expense
   updateExpense: async (id, expenseData) => {
     set({ loading: true, error: null });
     const result = await updateExpense(id, expenseData);
@@ -60,7 +60,7 @@ const useExpenseStore = create((set, get) => ({
     }
   },
   
-  // Delete expense
+  // To delete expense
 deleteExpense: async (id) => {
   set({ loading: true, error: null });
   try {
@@ -81,7 +81,7 @@ deleteExpense: async (id) => {
   }
 },
   
-  // Search and Filter
+  // For Search and Filter
   setSearchQuery: (query) => set({ searchQuery: query }),
   setSelectedCategory: (categoryId) => set({ selectedCategory: categoryId }),
   clearFilters: () => set({ searchQuery: '', selectedCategory: null }),
@@ -104,7 +104,6 @@ deleteExpense: async (id) => {
     return filtered;
   },
   
-  // Calculate total
   getTotalExpenses: () => {
     const filtered = get().getFilteredExpenses();
     return filtered.reduce((sum, e) => sum + e.amount, 0);

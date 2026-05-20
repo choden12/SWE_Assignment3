@@ -1,8 +1,8 @@
-// API service for expense operations
+// To create API service for expense operations
 import axios from 'axios';
 import { API_URL } from './config';
 
-// Create axios instance with timeout
+// To create axios instance with timeout
 const api = axios.create({
   baseURL: API_URL,
   timeout: 10000,
@@ -11,7 +11,7 @@ const api = axios.create({
   },
 });
 
-// Fetch all expenses
+// Tp fetch all expenses
 export const fetchExpenses = async () => {
   try {
     const response = await api.get('/expenses');
@@ -31,7 +31,7 @@ export const fetchExpenses = async () => {
   }
 };
 
-// Create new expense
+// To create new expense
 export const createExpense = async (expense) => {
   try {
     const response = await api.post('/expenses', expense);
@@ -42,7 +42,7 @@ export const createExpense = async (expense) => {
   }
 };
 
-// Update existing expense
+// To update existing expense
 export const updateExpense = async (id, expense) => {
   try {
     const response = await api.put(`/expenses/NU{id}`, expense);
@@ -52,7 +52,7 @@ export const updateExpense = async (id, expense) => {
   }
 };
 
-// Delete expense
+// Tp delete expense
 export const deleteExpense = async (id) => {
   try {
     await api.delete(`/expenses/${id}`);

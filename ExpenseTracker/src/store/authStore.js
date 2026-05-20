@@ -1,4 +1,4 @@
-// Authentication state management using Zustand
+// for authentication state management using Zustand
 import { create } from 'zustand';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -9,31 +9,31 @@ const useAuthStore = create((set, get) => ({
   isLoading: false,
   error: null,
   
-  // Dummy users database (in production, this would be on backend)
+  // For dummy users database (in production, this would be on backend)
   users: [
     { id: '1', email: 'user@example.com', password: 'password123', name: 'Demo User' },
     { id: '2', email: 'test@test.com', password: 'test123', name: 'Test User' }
   ],
   
-  // Login function
+  // For Login function
   login: async (email, password) => {
     set({ isLoading: true, error: null });
     
-    // Simulate network delay
+    //For Simulate network delay
     await new Promise(resolve => setTimeout(resolve, 800));
     
-    // Find user
+    // To Find user
     const user = get().users.find(u => u.email === email && u.password === password);
     
     if (user) {
-      // Remove password before storing
+      // To remove password before storing
       const { password, ...userWithoutPassword } = user;
       set({ 
         user: userWithoutPassword, 
         isAuthenticated: true, 
         isLoading: false 
       });
-      // Persist to storage
+      
       await AsyncStorage.setItem('user', JSON.stringify(userWithoutPassword));
       return { success: true };
     } else {
@@ -45,13 +45,13 @@ const useAuthStore = create((set, get) => ({
     }
   },
   
-  // Signup function
+  // For Signup function
   signup: async (name, email, password) => {
     set({ isLoading: true, error: null });
     
     await new Promise(resolve => setTimeout(resolve, 800));
     
-    // Check if user exists
+    // To Check if user exists
     const existingUser = get().users.find(u => u.email === email);
     
     if (existingUser) {
@@ -59,7 +59,7 @@ const useAuthStore = create((set, get) => ({
       return { success: false, error: 'Email already exists' };
     }
     
-    // Create new user
+    // To Create new user
     const newUser = {
       id: Date.now().toString(),
       name,
@@ -78,7 +78,7 @@ const useAuthStore = create((set, get) => ({
     return { success: true };
   },
   
-  // Logout function
+  // For Logout function
   logout: async () => {
     set({ user: null, isAuthenticated: false });
     await AsyncStorage.removeItem('user');

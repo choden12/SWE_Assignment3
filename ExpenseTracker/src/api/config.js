@@ -1,6 +1,6 @@
-// ⚠️ IMPORTANT: You'll update this IP address later
-// After starting backend, run 'ipconfig' to find your IP
-// src/api/config.js
+// IMPORTANT: You'll update this IP address later
+// After starting backend, run 'ipconfig' to find IP
+
 export const API_URL = 'http://192.168.8.113:3000';
 
 // API Endpoints
