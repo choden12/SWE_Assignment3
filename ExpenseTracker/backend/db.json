@@ -1,0 +1,28 @@
+{
+  "expenses": [
+    {
+      "id": "2",
+      "title": "Taxi Ride",
+      "amount": 500,
+      "categoryId": "2",
+      "date": "2026-06-16",
+      "description": "Morning ride"
+    },
+    {
+      "id": "3",
+      "title": "Movie Night",
+      "amount": 300,
+      "categoryId": "4",
+      "date": "2026-06-16",
+      "description": "Dune 2 tickets"
+    },
+    {
+      "id": "4",
+      "title": "Netflix Subscription",
+      "amount": 300,
+      "categoryId": "5",
+      "date": "2026-06-10",
+      "description": "Monthly subscription"
+    }
+  ]
+}
